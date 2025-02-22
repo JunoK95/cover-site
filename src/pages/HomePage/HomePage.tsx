@@ -1,10 +1,10 @@
-import { PageLayout } from '../../layouts/PageLayout';
+import { PageLayout } from "../../layouts/PageLayout";
 
 function HomePage() {
   return (
     <PageLayout
-      leftContent={<div>Home Left</div>}
-      rightContent={<div>Home Right</div>}
+      leftContent={<h1>Home Left</h1>}
+      rightContent={<h1>Home Right</h1>}
     />
   );
 }
