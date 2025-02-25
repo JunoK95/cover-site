@@ -1,7 +1,8 @@
-import { AnimatePresence, motion, MotionProps } from "framer-motion";
+import { motion, MotionProps } from "framer-motion";
 import React from "react";
 import styles from "./PageLayout.module.scss";
 import joinClassnames from "../../utils/joinClassnames";
+import { useLocation } from "react-router-dom";
 
 type Props = {
   leftContent?: React.ReactNode;
@@ -10,42 +11,59 @@ type Props = {
 
 const leftAnimationProps: Partial<MotionProps> = {
   initial: {
-    opacity: 0,
-    marginLeft: 1000,
+    top: 0,
+    left: "55%",
+    zIndex: -1,
   },
   animate: {
-    opacity: 1,
-    marginLeft: 0,
+    left: 0,
   },
   exit: {
     opacity: 0,
-    marginLeft: 1000,
+    top: "105%",
   },
   transition: {
-    duration: 2,
+    duration: 0.4,
   },
 };
 
-const rightAnimationProps: Partial<MotionProps> = {};
+const rightAnimationProps: Partial<MotionProps> = {
+  initial: {
+    zIndex: 1,
+  },
+  animate: {
+    zIndex: [1, 0, 0],
+  },
+  exit: {
+    zIndex: -1,
+  },
+  transition: {
+    duration: 0.4,
+    times: [0, 0.5, 1],
+  },
+};
 
 function PageLayout({ leftContent, rightContent }: Props) {
+  const location = useLocation();
+
   return (
-    <div className={styles.container}>
+    <motion.div className={styles.container}>
       <motion.div
-        key="page-layout-section-one"
+        key={`page-layout-section-one-${location.pathname}`}
         className={joinClassnames([styles.section, styles.sectionOne])}
         {...leftAnimationProps}
       >
+        <motion.div></motion.div>
         {leftContent}
       </motion.div>
       <motion.div
-        key="page-layout-section-two"
+        key={`page-layout-section-two-${location.pathname}`}
         className={joinClassnames([styles.section, styles.sectionTwo])}
         {...rightAnimationProps}
       >
         {rightContent}
       </motion.div>
-    </div>
+    </motion.div>
   );
 }
 

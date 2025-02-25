@@ -2,14 +2,17 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: white;
-  font-family: 'Fira Sans Condensed', sans-serif;
+  font-family: "Fira Sans Condensed", sans-serif;
 }
 
 html,
 body {
-  font-family: 'Fira Sans Condensed', sans-serif;
-  background: rgb(0, 162, 255);
+  font-family: "Fira Sans Condensed", sans-serif;
+  background-color: #f0f0f0;
+}
+
+a:hover {
+  cursor: pointer;
 }
 
 .nav {
@@ -34,32 +37,4 @@ body {
 a {
   text-decoration: none;
   font-weight: 500;
-}
-
-.slide-enter {
-  z-index: -1;
-  opacity: 0;
-  transform: translateX(50vw);
-  animation: slide-enter-opacity 0.4s forwards;
-  position: absolute;
-}
-
-/* Declare transition properties */
-.slide-enter.slide-enter-active {
-  transform: translateX(0);
-  opacity: 1;
-  transition: all 400ms ease-out 250ms;
-}
-
-/* EXIT TRANSITION */
-.slide-exit {
-  z-index: -5;
-}
-
-.slide-exit div {
-  z-index: -5;
-}
-
-.slide-exit.slide-exit-active {
-  transition: all 200ms linear;
 }

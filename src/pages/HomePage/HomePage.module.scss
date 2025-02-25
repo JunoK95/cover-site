@@ -1,0 +1,74 @@
+.left {
+  color: #222;
+  padding-left: 48px;
+  width: 30vw;
+  height: 24vh;
+  .title {
+    font-weight: bold;
+    font-size: 10vw;
+    text-shadow: 4px 4px #ffa19e;
+    text-align: center;
+  }
+  .subtitle {
+    position: absolute;
+    font-weight: bold;
+    font-family: Helvetica;
+    font-size: 30px;
+    text-shadow: 1px 1px #ffa19e;
+    line-height: 0;
+    text-align: left;
+    font-style: italic;
+    vertical-align: text-top;
+  }
+  .divDecor {
+    position: absolute;
+    left: -30px;
+    font-size: 24px;
+    font-weight: 800;
+    font-style: italic;
+    font-family: monospace;
+    color: #ffa19e;
+  }
+  @media only screen and (max-width: 768px) {
+    width: 70vw;
+    padding-top: 48px;
+    .subtitle {
+      text-align: center;
+      font-size: 25px;
+    }
+    .jello-text {
+      padding-top: 48px;
+      font-size: 20vw;
+    }
+    .div-decor {
+      position: absolute;
+      left: 0px;
+      font-size: 20px;
+      font-weight: 800;
+      font-style: italic;
+      font-family: monospace;
+      color: #ffa19e;
+    }
+  }
+}
+
+.right {
+  width: 30vw;
+  vertical-align: center;
+  color: #738b99;
+  font-size: 1rem;
+  font-style: italic;
+  text-shadow: 1px 1px #ddd;
+  @media only screen and (max-width: 768px) {
+    padding-right: 0;
+    font-size: 1rem;
+    width: 60vw;
+  }
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
