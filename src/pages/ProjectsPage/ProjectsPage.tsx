@@ -1,9 +1,11 @@
+import { colors } from "../../constants/colors";
 import { PageLayout } from "../../layouts/PageLayout";
 
 function ProjectsPage() {
   return (
     <PageLayout
       leftContent={<h1>PROJECTS LEFT</h1>}
+      leftColor={colors.turquois}
       rightContent={<h1>PROJECTS RIGHT</h1>}
     />
   );
