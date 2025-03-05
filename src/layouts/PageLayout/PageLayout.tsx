@@ -7,6 +7,7 @@ import { useLocation } from "react-router-dom";
 type Props = {
   leftContent?: React.ReactNode;
   rightContent?: React.ReactNode;
+  leftColor?: string;
 };
 
 const leftAnimationProps: Partial<MotionProps> = {
@@ -40,10 +41,31 @@ const rightAnimationProps: Partial<MotionProps> = {
   transition: {
     duration: 0.4,
     times: [0, 0.5, 1],
+    ease: "easeOut",
   },
 };
 
-function PageLayout({ leftContent, rightContent }: Props) {
+const contentAnimationProps: Partial<MotionProps> = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      duration: 0.25,
+      delay: 0,
+    },
+  },
+  transition: {
+    duration: 0.25,
+    delay: 0.6,
+  },
+};
+
+function PageLayout({ leftContent, rightContent, leftColor }: Props) {
   const location = useLocation();
 
   return (
@@ -51,17 +73,17 @@ function PageLayout({ leftContent, rightContent }: Props) {
       <motion.div
         key={`page-layout-section-one-${location.pathname}`}
         className={joinClassnames([styles.section, styles.sectionOne])}
+        style={{ backgroundColor: leftColor }}
         {...leftAnimationProps}
       >
-        <motion.div></motion.div>
-        {leftContent}
+        <motion.div {...contentAnimationProps}>{leftContent}</motion.div>
       </motion.div>
       <motion.div
         key={`page-layout-section-two-${location.pathname}`}
         className={joinClassnames([styles.section, styles.sectionTwo])}
         {...rightAnimationProps}
       >
-        {rightContent}
+        <motion.div {...contentAnimationProps}>{rightContent}</motion.div>
       </motion.div>
     </motion.div>
   );

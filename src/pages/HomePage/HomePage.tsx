@@ -3,19 +3,18 @@ import JelloText from "../../components/JelloText/JelloText";
 import { PageLayout } from "../../layouts/PageLayout";
 import joinClassnames from "../../utils/joinClassnames";
 import styles from "./HomePage.module.scss";
+import { colors } from "../../constants/colors";
 
 const leftContent = (
   <div className={joinClassnames([styles.left, styles.centered])}>
     <span className={styles.divDecor}>{`<div>`}</span>
-    <span className={styles.subtitle} style={{ left: "24px" }}>
-      Hi I'm
-    </span>
-    <span className={styles.subtitle} style={{ bottom: "0", right: "0" }}>
-      - Frontend Engineer
-    </span>
+    <span className={styles.subtitle}>Hi I'm</span>
     <div className={styles.title}>
       <JelloText>JUNO</JelloText>
     </div>
+    <span className={joinClassnames([styles.subtitle, styles.alignRight])}>
+      - Frontend Engineer
+    </span>
     <span className={styles.divDecor}>{`</div>`}</span>
   </div>
 );
@@ -33,7 +32,13 @@ const rightContent = (
 );
 
 function HomePage() {
-  return <PageLayout leftContent={leftContent} rightContent={rightContent} />;
+  return (
+    <PageLayout
+      leftContent={leftContent}
+      leftColor={colors.red}
+      rightContent={rightContent}
+    />
+  );
 }
 
 export default HomePage;

@@ -35,7 +35,7 @@ function NavigationOverlay({ children }: Props) {
         </nav>
       </div>
       <header>
-        <h1>BRAND</h1>
+        <h1>JUNO</h1>
       </header>
       <footer></footer>
     </div>
