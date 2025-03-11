@@ -55,11 +55,13 @@ const contentAnimationProps: Partial<MotionProps> = {
   exit: {
     opacity: 0,
     transition: {
+      ease: "easeOut",
       duration: 0.25,
       delay: 0,
     },
   },
   transition: {
+    ease: "easeOut",
     duration: 0.25,
     delay: 0.6,
   },

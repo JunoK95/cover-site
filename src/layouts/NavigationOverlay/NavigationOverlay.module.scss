@@ -1,3 +1,5 @@
+@import "../../styles/colors.scss";
+
 .container {
   position: fixed;
   top: 0;
@@ -39,17 +41,29 @@
       display: flex;
       flex-direction: column;
       a {
+        position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 1rem 0;
+        margin: 0.75rem 0;
         text-decoration: none;
-        color: black;
         font-size: 1.25rem;
+        color: black;
         cursor: pointer;
-      }
-      svg {
-        cursor: pointer;
+        label {
+          display: block;
+          position: absolute;
+          top: 0;
+          right: 0;
+          opacity: 0;
+          transition: right 0.25s ease-in-out, opacity 0.25s ease-in-out;
+        }
+        &:hover {
+          label {
+            right: calc(100% + 0.5rem);
+            opacity: 1;
+          }
+        }
       }
     }
   }
@@ -68,4 +82,24 @@
     height: calc(100% - 8rem);
     transform: translate(-50%, -50%);
   }
+}
+
+$colors: (
+  home: $red,
+  skills: $purple,
+  projects: $turquois,
+  contact: $brown,
+);
+
+@each $class, $color in $colors {
+  .#{$class}:hover {
+    color: $color !important;
+  }
+  .active.#{$class} {
+    color: $color !important;
+  }
+}
+
+.active {
+  pointer-events: none;
 }
