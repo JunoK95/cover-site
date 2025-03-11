@@ -1,4 +1,4 @@
-@import "../../styles/colors.scss";
+@use "../../styles/colors.scss";
 
 .container {
   position: fixed;
@@ -85,10 +85,10 @@
 }
 
 $colors: (
-  home: $red,
-  skills: $purple,
-  projects: $turquois,
-  contact: $brown,
+  home: colors.$red,
+  skills: colors.$purple,
+  projects: colors.$turquois,
+  contact: colors.$brown,
 );
 
 @each $class, $color in $colors {
