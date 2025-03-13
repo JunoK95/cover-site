@@ -70,7 +70,29 @@ function NavigationOverlay({ children }: Props) {
       <header>
         <h1>JUNO</h1>
       </header>
-      <footer></footer>
+      <footer>
+        <nav>
+          <NavItem to={"/"} label="home" icon={faHouse} color={colors.red} />
+          <NavItem
+            to={"/skills"}
+            label="skills"
+            icon={faGraduationCap}
+            color={colors.purple}
+          />
+          <NavItem
+            to={"/projects"}
+            label="projects"
+            icon={faBook}
+            color={colors.turquois}
+          />
+          <NavItem
+            to={"/contact"}
+            label="contact"
+            icon={faEnvelope}
+            color={colors.brown}
+          />
+        </nav>
+      </footer>
     </div>
   );
 }

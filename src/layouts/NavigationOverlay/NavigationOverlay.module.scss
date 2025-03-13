@@ -1,4 +1,5 @@
 @use "../../styles/colors.scss";
+@use "../../styles/breakpoints.scss";
 
 .container {
   position: fixed;
@@ -14,13 +15,15 @@
     color: black;
     height: 4rem;
     width: 100%;
-    padding: 0 4rem;
+    padding: 0 1rem;
     h1 {
-      font-size: 2.5rem;
+      font-size: 2rem;
     }
   }
   .leftBar {
     position: absolute;
+    display: none;
+    z-index: 1;
     left: 0;
     width: 4rem;
     height: 100%;
@@ -28,7 +31,7 @@
   }
   .rightBar {
     position: absolute;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -73,14 +76,53 @@
     background-color: white;
     height: 4rem;
     width: 100%;
+    nav {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-evenly;
+      height: 100%;
+      a {
+        font-size: 1.5rem;
+        color: black;
+      }
+      label {
+        display: none;
+      }
+    }
   }
   .content {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: calc(100% - 8rem);
+    width: 100%;
     height: calc(100% - 8rem);
     transform: translate(-50%, -50%);
+  }
+}
+
+@include breakpoints.md {
+  .container {
+    header {
+      padding: 0 4rem;
+      h1 {
+        font-size: 2rem;
+      }
+    }
+    .leftBar {
+      display: flex;
+    }
+    .rightBar {
+      display: flex;
+    }
+    .content {
+      width: calc(100% - 8rem);
+    }
+    footer {
+      nav {
+        display: none;
+      }
+    }
   }
 }
 

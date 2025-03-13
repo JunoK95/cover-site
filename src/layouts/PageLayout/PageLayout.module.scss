@@ -1,25 +1,36 @@
+@use "../../styles/breakpoints.scss";
+
 .container {
   position: relative;
   display: flex;
-  flex-direction: row;
+  flex: 1;
   height: 100%;
+  flex-direction: column;
 }
 
 .section {
-  position: absolute;
   display: flex;
-  width: 50%;
-  height: 100%;
+  width: 100%;
+  height: 50%;
   align-items: center;
   justify-content: center;
 }
 
 .sectionOne {
   left: 0;
-  background-color: red;
 }
 
 .sectionTwo {
   left: 50%;
   background-color: #f0f0f0;
+}
+
+@include breakpoints.md {
+  .container {
+    flex-direction: row;
+  }
+  .section {
+    width: 50%;
+    height: 100%;
+  }
 }
