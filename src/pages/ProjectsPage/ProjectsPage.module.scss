@@ -29,6 +29,14 @@
   text-shadow: 1px 1px #ddd;
 }
 
+@include breakpoints.sm {
+  .left {
+    .title {
+      font-size: 6rem;
+    }
+  }
+}
+
 @include breakpoints.md {
   .left {
     .title {

@@ -28,7 +28,7 @@
   top: 50%;
 }
 
-@include breakpoints.md {
+@include breakpoints.sm {
   .container {
     flex-direction: row;
   }
