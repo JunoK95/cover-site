@@ -59,7 +59,7 @@
 @include breakpoints.sm {
   .left {
     .title {
-      font-size: 8rem;
+      font-size: 6rem;
     }
     .subtitle {
       text-align: left;
@@ -74,6 +74,14 @@
       padding: 2.5rem 0;
       margin-left: -2rem;
       opacity: 1;
+    }
+  }
+}
+
+@include breakpoints.md {
+  .left {
+    .title {
+      font-size: 8rem;
     }
   }
 }

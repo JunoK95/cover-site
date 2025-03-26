@@ -32,6 +32,14 @@
 @include breakpoints.sm {
   .left {
     .title {
+      font-size: 6rem;
+    }
+  }
+}
+
+@include breakpoints.md {
+  .left {
+    .title {
       font-size: 8rem;
     }
   }

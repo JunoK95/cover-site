@@ -2,15 +2,9 @@ import React from "react";
 import styles from "./NavigationOverlay.module.scss";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faBook,
-  faEnvelope,
-  faGraduationCap,
-  faHouse,
-  IconDefinition,
-} from "@fortawesome/free-solid-svg-icons";
-import { colors } from "../../constants/colors";
+import { IconDefinition } from "@fortawesome/free-solid-svg-icons";
 import joinClassnames from "../../utils/joinClassnames";
+import { navigationList } from "../../constants/navigationList";
 
 type NavItemProps = {
   to: string;
@@ -46,25 +40,15 @@ function NavigationOverlay({ children }: Props) {
       <div className={styles.content}>{children}</div>
       <div className={styles.rightBar}>
         <nav>
-          <NavItem to={"/"} label="home" icon={faHouse} color={colors.red} />
-          <NavItem
-            to={"/skills"}
-            label="skills"
-            icon={faGraduationCap}
-            color={colors.purple}
-          />
-          <NavItem
-            to={"/projects"}
-            label="projects"
-            icon={faBook}
-            color={colors.turquois}
-          />
-          <NavItem
-            to={"/contact"}
-            label="contact"
-            icon={faEnvelope}
-            color={colors.brown}
-          />
+          {navigationList.map((item) => (
+            <NavItem
+              key={item.to}
+              to={item.to}
+              label={item.label}
+              icon={item.icon}
+              color={item.color}
+            />
+          ))}
         </nav>
       </div>
       <header>
@@ -72,25 +56,15 @@ function NavigationOverlay({ children }: Props) {
       </header>
       <footer>
         <nav>
-          <NavItem to={"/"} label="home" icon={faHouse} color={colors.red} />
-          <NavItem
-            to={"/skills"}
-            label="skills"
-            icon={faGraduationCap}
-            color={colors.purple}
-          />
-          <NavItem
-            to={"/projects"}
-            label="projects"
-            icon={faBook}
-            color={colors.turquois}
-          />
-          <NavItem
-            to={"/contact"}
-            label="contact"
-            icon={faEnvelope}
-            color={colors.brown}
-          />
+          {navigationList.map((item) => (
+            <NavItem
+              key={item.to}
+              to={item.to}
+              label={item.label}
+              icon={item.icon}
+              color={item.color}
+            />
+          ))}
         </nav>
       </footer>
     </div>
