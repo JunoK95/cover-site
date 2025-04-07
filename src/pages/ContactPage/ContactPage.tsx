@@ -23,11 +23,11 @@ const rightContent = (
     </div>
     <div className={styles.contactItem}>
       <FontAwesomeIcon icon={faGithub} />
-      <p>junokimemail@gmail.com</p>
+      <p>https://github.com/JunoK95</p>
     </div>
     <div className={styles.contactItem}>
       <FontAwesomeIcon icon={faLinkedin} />
-      <p>junokimemail@gmail.com</p>
+      <p>https://www.linkedin.com/in/juno-kim-007/</p>
     </div>
   </div>
 );
