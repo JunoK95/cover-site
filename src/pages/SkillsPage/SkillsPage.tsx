@@ -31,9 +31,13 @@ const rightContent = () => {
         category.toLowerCase()
       )
     );
+
+    const skillNames = skills.map(
+      (key) => skillsList[key as keyof typeof skillsList].name
+    );
     return {
       title: category,
-      skills,
+      skills: skillNames.sort((a, b) => a.localeCompare(b)),
     };
   });
 

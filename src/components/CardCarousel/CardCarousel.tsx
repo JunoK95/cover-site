@@ -7,7 +7,6 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import styles from "./CardCarousel.module.scss";
-import { colors } from "@/constants/colors";
 
 type CardProps = {
   title: string;
@@ -47,7 +46,7 @@ const CardCarousel = ({ cards = [] }: Props) => {
         loop: true,
       }}
       setApi={setApi}
-      className={`relative w-full h-full max-w-[400px] sm:max-w-none ${styles.carousel}`}
+      className={`relative w-full h-full sm:max-w-none ${styles.carousel}`}
     >
       <div className={styles.leftBlur} />
       <div className={styles.rightBlur} />
@@ -57,14 +56,14 @@ const CardCarousel = ({ cards = [] }: Props) => {
         {cards.map((c, index) => (
           <CarouselItem
             key={index}
-            className="basis-8/12 sm:basis-1/2 lg:basis-5/12 xl:basis-4/12"
+            className="basis-8/12 sm:basis-1/2 lg:basis-/12 xl:basis-4/12"
             onClick={() => setSelected(index)}
           >
             <Card
-              className={`flex flex-col w-full overflow-hidden shrink-0 transition-height duration-500 delay-200 select-none min-w-25 ${
+              className={`flex flex-col w-full overflow-hidden shrink-0 transition-height duration-700 delay-300 select-none min-w-25 ${
                 selected === index ? styles.cardActive : styles.cardInactive
               }`}
-              style={{ padding: "0.5rem 0" }}
+              style={{ padding: "0.5rem 0 1rem 0" }}
             >
               <CardContent className="w-full h-full">
                 <div className="flex flex-col w-full h-full">
@@ -73,7 +72,7 @@ const CardCarousel = ({ cards = [] }: Props) => {
                     className="flex justify-center place-items-center items-center"
                     style={{ paddingBottom: "0.5rem" }}
                   >
-                    <h3 className="text-2xl font-bold">{c.title}</h3>
+                    <h3 className="text-2xl font-bold not-italic">{c.title}</h3>
                   </div>
                   {selected === index && (
                     <div className="w-full">
@@ -81,7 +80,7 @@ const CardCarousel = ({ cards = [] }: Props) => {
                         {c.skills.map((skill, index) => (
                           <div
                             key={index}
-                            className="m-0 p-0 w-full max-w-[50%] box-border"
+                            className="m-0 p-0 w-full max-w-[50%] box-border not-italic font-bold"
                           >
                             {skill}
                           </div>

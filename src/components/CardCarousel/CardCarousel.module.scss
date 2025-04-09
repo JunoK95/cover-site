@@ -45,5 +45,6 @@
 
 @include breakpoints.md {
   .carousel {
+    max-width: calc(100% - 4rem);
   }
 }
