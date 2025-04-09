@@ -1,5 +1,39 @@
-.carouselContent {
-  &:first-child {
-    padding-left: 1rem;
+@use "../../styles/breakpoints";
+
+.carousel {
+  .carouselContent {
+    cursor: grab;
+    &:first-child {
+      padding-left: 1rem;
+    }
+  }
+  .leftBlur {
+    display: none;
+    position: absolute;
+    left: -1rem;
+    top: 0;
+    width: 2rem;
+    height: 100%;
+    background-color: #f0f0f0;
+    z-index: 1;
+    filter: blur(8px);
+    opacity: 1;
+  }
+  .rightBlur {
+    display: none;
+    position: absolute;
+    right: -1rem;
+    top: 0;
+    width: 2rem;
+    height: inherit;
+    background-color: #f0f0f0;
+    z-index: 1;
+    filter: blur(8px);
+    opacity: 0.8;
+  }
+}
+
+@include breakpoints.md {
+  .carousel {
   }
 }

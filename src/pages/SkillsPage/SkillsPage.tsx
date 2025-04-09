@@ -5,6 +5,7 @@ import joinClassnames from "../../utils/joinClassnames";
 import styles from "./SkillsPage.module.scss";
 // import SkillList from "../../components/SkillList/SkillList";
 import CardCarousel from "../../components/CardCarousel/CardCarousel";
+import { skillsList } from "@/constants/skillsList";
 
 const leftContent = (
   <div className={joinClassnames([styles.left, styles.centered])}>
@@ -14,24 +15,41 @@ const leftContent = (
   </div>
 );
 
-const rightContent = (
-  <div className={styles.right}>
-    <CardCarousel />
-    {/* <SkillList title={"Development"} skills={["hello", "world"]} />
-    <SkillList title={"Language"} skills={["hello", "world"]} />
-    <SkillList title={"Design"} skills={["hello", "world"]} />
-    <SkillList title={"Core"} skills={["hello", "world"]} />
-    <SkillList title={"Cloud"} skills={["hello", "world"]} />
-    <SkillList title={"Framework"} skills={["hello", "world"]} /> */}
-  </div>
-);
+const rightContent = () => {
+  const skillKeys = Object.keys(skillsList);
+  const skillCategories = [
+    "Development",
+    "Language",
+    "Design",
+    "Core",
+    "Cloud",
+    "Framework",
+  ];
+  const cards = skillCategories.map((category) => {
+    const skills = skillKeys.filter((key) =>
+      skillsList[key as keyof typeof skillsList].tags.includes(
+        category.toLowerCase()
+      )
+    );
+    return {
+      title: category,
+      skills,
+    };
+  });
+
+  return (
+    <div className={styles.right}>
+      <CardCarousel cards={cards} />
+    </div>
+  );
+};
 
 function SkillsPage() {
   return (
     <PageLayout
       leftContent={leftContent}
       leftColor={colors.purple}
-      rightContent={rightContent}
+      rightContent={rightContent()}
     />
   );
 }

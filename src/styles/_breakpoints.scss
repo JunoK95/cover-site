@@ -1,14 +1,14 @@
 // Small tablets and large smartphones (landscape view)
-$screen-sm-min: 576px;
+$screen-sm-min: 40rem;
 
 // Small tablets (portrait view) small desktop
-$screen-md-min: 996px;
+$screen-md-min: 48rem;
 
 // Desktops
-$screen-lg-min: 1600px;
+$screen-lg-min: 64rem;
 
 // Large Screens
-$screen-xl-min: 2600px;
+$screen-xl-min: 80rem;
 
 // Small devices
 @mixin sm {

@@ -7,8 +7,18 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import styles from "./CardCarousel.module.scss";
+import { colors } from "@/constants/colors";
 
-const CardCarousel: React.FC = () => {
+type CardProps = {
+  title: string;
+  skills: string[];
+};
+
+type Props = {
+  cards?: CardProps[];
+};
+
+const CardCarousel = ({ cards = [] }: Props) => {
   const [api, setApi] = useState<CarouselApi>();
   const [selected, setSelected] = useState(0);
 
@@ -22,42 +32,40 @@ const CardCarousel: React.FC = () => {
       console.log(`Embla just triggered ${api.selectedScrollSnap() + 1}!`);
     });
   }, [api]);
+
   return (
     <Carousel
       opts={{
         loop: true,
       }}
       setApi={setApi}
-      className="w-full h-full max-w-sm"
+      className={`relative w-full h-full max-w-[400px] sm:max-w-none ${styles.carousel}`}
     >
+      <div className={styles.leftBlur} />
+      <div className={styles.rightBlur} />
       <CarouselContent
         className={`flex items-center gap-4 ${styles.carouselContent}`}
       >
-        {Array.from({ length: 5 }).map((_, index) => (
-          <CarouselItem key={index} className="md:basis-2/3">
+        {cards.map((c, index) => (
+          <CarouselItem
+            key={index}
+            className="basis-8/12 sm:basis-1/2 lg:basis-5/12 xl:basis-4/12"
+          >
             <Card
-              className={`flex flex-col overflow-hidden h-60 transition-height duration-500 delay-200 ${
-                selected === index ? "h-80 bg-amber-200" : ""
+              className={`flex flex-col overflow-hidden h-40 transition-height duration-500 delay-200 ${
+                selected === index ? `h-60 bg-[${colors.purple}]` : ""
               }`}
             >
               <CardHeader style={{ paddingTop: "1rem" }}>
-                <CardTitle>Development</CardTitle>
+                <CardTitle>{c.title}</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="columns-2">
-                  <li>Skill 1</li>
-                  <li>Skill 2</li>
-                  <li>Skill 3</li>
-                  <li>Skill 4</li>
-                  <li>Skill 5</li>
-                  <li>Skill 1</li>
-                  <li>Skill 1</li>
-                  <li>Skill 1</li>
-                  <li>Skill 1</li>
-                  <li>Skill 1</li>
-                  <li>Skill 1</li>
-                  <li>Skill 1</li>
-                  <li>Skill 1</li>
+                  {c.skills.map((skill, index) => (
+                    <li key={index} className="text-sm">
+                      {skill}
+                    </li>
+                  ))}
                 </ul>
               </CardContent>
             </Card>

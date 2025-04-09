@@ -29,56 +29,6 @@
   text-shadow: 1px 1px #ddd;
 }
 
-.accordionContainer {
-  padding: 2rem;
-  ul {
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    background-color: #eee;
-    padding-left: 10px;
-  }
-
-  li {
-    display: block;
-    border-left: 3px solid #000;
-    padding-left: 10px;
-    height: 30px;
-  }
-
-  li.main {
-    font-weight: bold;
-    height: 50px;
-  }
-
-  li::before {
-    content: "";
-    width: 12px;
-    height: 12px;
-    background-color: #000;
-    display: inline-block;
-    border-radius: 6px;
-    position: relative;
-    margin-left: -17px;
-    margin-right: 10px;
-    margin-top: 3px;
-  }
-
-  li.main::before {
-    content: "";
-    width: 20px;
-    height: 20px;
-    background-color: #fff;
-    display: inline-block;
-    border-radius: 15px;
-    position: relative;
-    top: 6px;
-    margin-left: -25px;
-    margin-right: 10px;
-    border: 4px solid #80f;
-  }
-}
-
 @include breakpoints.sm {
   .left {
     .title {
@@ -87,7 +37,7 @@
   }
 }
 
-@include breakpoints.md {
+@include breakpoints.lg {
   .left {
     .title {
       font-size: 8rem;
