@@ -1,4 +1,5 @@
 @use "../../styles/breakpoints";
+@use "../../styles/colors";
 
 .carousel {
   .carouselContent {
@@ -31,6 +32,15 @@
     filter: blur(8px);
     opacity: 0.8;
   }
+}
+
+.cardActive {
+  background-color: colors.$purple;
+  max-height: 15rem;
+}
+
+.cardInactive {
+  max-height: 3rem;
 }
 
 @include breakpoints.md {
