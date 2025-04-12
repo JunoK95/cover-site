@@ -35,7 +35,7 @@
 }
 
 .cardActive {
-  background-color: colors.$purple;
+  background-color: rgba($color: colors.$purple, $alpha: 0.7);
   max-height: 15rem;
 }
 

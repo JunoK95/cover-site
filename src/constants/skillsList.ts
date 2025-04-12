@@ -37,11 +37,11 @@ export const skillsList = {
   },
   node: {
     name: "Node",
-    tags: ["backend"],
+    tags: ["core"],
   },
   express: {
     name: "Express",
-    tags: ["backend"],
+    tags: ["core"],
   },
   postgresql: {
     name: "Postgresql",
@@ -71,6 +71,14 @@ export const skillsList = {
     name: "Tailwind",
     tags: ["styling", "framework"],
   },
+  materialUI: {
+    name: "Material UI",
+    tags: ["styling", "framework"],
+  },
+  shadcn: {
+    name: "Shadcn",
+    tags: ["styling", "framework"],
+  },
   react: {
     name: "React",
     tags: ["framework"],
@@ -81,6 +89,14 @@ export const skillsList = {
   },
   nextJS: {
     name: "NextJS",
+    tags: ["framework"],
+  },
+  vite: {
+    name: "Vite",
+    tags: ["framework"],
+  },
+  gatsby: {
+    name: "gatsby",
     tags: ["framework"],
   },
   photoshop: {
