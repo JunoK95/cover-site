@@ -52,7 +52,7 @@ const CardCarousel = ({ cards = [] }: Props) => {
       }}
       plugins={[plugin.current]}
       setApi={setApi}
-      className={`relative w-full h-full sm:max-w-none ${styles.carousel}`}
+      className={`relative h-full sm:max-w-none ${styles.carousel}`}
     >
       <div className={styles.leftBlur} />
       <div className={styles.rightBlur} />
@@ -72,7 +72,7 @@ const CardCarousel = ({ cards = [] }: Props) => {
               style={{ padding: "0.5rem 0 1rem 0" }}
             >
               <CardContent className="w-full h-full">
-                <div className="flex flex-col w-full h-full">
+                <div className="flex flex-col w-full h-full justify-end">
                   <div
                     id={`card-header-${index}`}
                     className="flex justify-center place-items-center items-center"

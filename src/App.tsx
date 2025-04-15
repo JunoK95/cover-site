@@ -4,7 +4,7 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import SkillsPage from "./pages/SkillsPage/SkillsPage";
 import { NavigationOverlay } from "./layouts/NavigationOverlay";
-import ProjectsPage from "./pages/ProjectsPage/ProjectsPage";
+// import ProjectsPage from "./pages/ProjectsPage/ProjectsPage";
 import ContactPage from "./pages/ContactPage/ContactPage";
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<HomePage />} />
             <Route path="/skills" element={<SkillsPage />} />
-            <Route path="/projects" element={<ProjectsPage />} />
+            {/* <Route path="/projects" element={<ProjectsPage />} /> */}
             <Route path="/contact" element={<ContactPage />} />
           </Routes>
         </AnimatePresence>

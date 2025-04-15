@@ -1,5 +1,5 @@
 import {
-  faBook,
+  // faBook,
   faEnvelope,
   faGraduationCap,
   faHouse,
@@ -18,12 +18,12 @@ export const navigationList = [
     icon: faGraduationCap,
     color: "purple",
   },
-  {
-    to: "/projects",
-    label: "projects",
-    icon: faBook,
-    color: "turquois",
-  },
+  // {
+  //   to: "/projects",
+  //   label: "projects",
+  //   icon: faBook,
+  //   color: "turquois",
+  // },
   {
     to: "/contact",
     label: "contact",

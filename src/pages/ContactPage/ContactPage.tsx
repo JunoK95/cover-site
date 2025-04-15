@@ -17,18 +17,21 @@ const leftContent = (
 
 const rightContent = (
   <div className={styles.right}>
-    <div className={styles.contactItem}>
+    <a
+      href={`mailto:${import.meta.env.VITE_EMAIL}`}
+      className={styles.contactItem}
+    >
       <FontAwesomeIcon icon={faEnvelope} />
-      <p>junokimemail@gmail.com</p>
-    </div>
-    <div className={styles.contactItem}>
+      <p>{import.meta.env.VITE_EMAIL}</p>
+    </a>
+    <a href={import.meta.env.VITE_GITHUB} className={styles.contactItem}>
       <FontAwesomeIcon icon={faGithub} />
-      <p>https://github.com/JunoK95</p>
-    </div>
-    <div className={styles.contactItem}>
+      <p>Github</p>
+    </a>
+    <a href={import.meta.env.VITE_LINKEDIN} className={styles.contactItem}>
       <FontAwesomeIcon icon={faLinkedin} />
-      <p>https://www.linkedin.com/in/juno-kim-007/</p>
-    </div>
+      <p>LinkedIn</p>
+    </a>
   </div>
 );
 
