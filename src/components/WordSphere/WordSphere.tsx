@@ -32,7 +32,12 @@ const WORDS = [
   "Deployment",
 ];
 
-function Word({ children, position }) {
+type WordProps = {
+  children: React.ReactNode;
+  position: THREE.Vector3;
+};
+
+function Word({ children, position }: WordProps) {
   const ref = useRef<THREE.Mesh>(null);
   useFrame(() => {
     if (ref.current) {
