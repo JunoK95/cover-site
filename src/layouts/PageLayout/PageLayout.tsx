@@ -85,7 +85,18 @@ function PageLayout({ leftContent, rightContent, leftColor }: Props) {
         className={joinClassnames([styles.section, styles.sectionTwo])}
         {...rightAnimationProps}
       >
-        <motion.div {...contentAnimationProps}>{rightContent}</motion.div>
+        <motion.div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "100%",
+            width: "100%",
+          }}
+          {...contentAnimationProps}
+        >
+          {rightContent}
+        </motion.div>
       </motion.div>
     </motion.div>
   );

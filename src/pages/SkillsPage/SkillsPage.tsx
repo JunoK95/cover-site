@@ -16,6 +16,7 @@ import {
   faLanguage,
   faPalette,
 } from "@fortawesome/free-solid-svg-icons";
+import WordSphere from "@/components/WordSphere/WordSphere";
 
 const leftContent = (
   <div className={joinClassnames([styles.left, styles.centered])}>
@@ -66,7 +67,8 @@ const rightContent = () => {
 
   return (
     <div className={styles.right}>
-      <CardCarousel cards={cards} />
+      {/* <CardCarousel cards={cards} /> */}
+      <WordSphere />
     </div>
   );
 };
