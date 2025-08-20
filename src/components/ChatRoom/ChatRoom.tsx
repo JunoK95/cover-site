@@ -14,12 +14,17 @@ export default function ChatRoom({
   isLoading,
   messages = [],
   onSend,
+  onAudioSend,
 }: {
   isLoading?: boolean;
   messages?: Message[];
   onSend?: (message: string) => void;
+  onAudioSend?: (formData: FormData) => void;
 }) {
   const [input, setInput] = useState("");
+  const [recording, setRecording] = useState(false);
+  const mediaRecorderRef = useRef<MediaRecorder | null>(null);
+  const audioChunksRef = useRef<Blob[]>([]);
   const chatContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -33,6 +38,55 @@ export default function ChatRoom({
     if (input.trim() === "") return;
     setInput("");
     onSend?.(input);
+  };
+
+  const handleRecord = async () => {
+    if (!recording) {
+      // 🎙️ Start recording
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const mediaRecorder = new MediaRecorder(stream);
+      audioChunksRef.current = [];
+
+      mediaRecorder.ondataavailable = (e) => {
+        if (e.data.size > 0) {
+          audioChunksRef.current.push(e.data);
+        }
+      };
+
+      mediaRecorder.onstop = async () => {
+        // Convert to Blob
+        const audioBlob = new Blob(audioChunksRef.current, {
+          type: "audio/webm",
+        });
+        const formData = new FormData();
+        formData.append("audio", audioBlob, "recorded.webm");
+
+        console.log("⏳ Sending audio...");
+
+        try {
+          await onAudioSend?.(formData);
+          console.log("✅ Done");
+        } catch (err) {
+          console.error("❌ Error sending audio", err);
+        }
+
+        // Stop mic tracks (release mic permission)
+        stream.getTracks().forEach((track) => track.stop());
+      };
+
+      mediaRecorder.start();
+      mediaRecorderRef.current = mediaRecorder;
+
+      setRecording(true);
+      console.log("🔴 Recording...");
+    } else {
+      // ⏹️ Stop recording
+      if (mediaRecorderRef.current) {
+        mediaRecorderRef.current.stop(); // triggers onstop
+      }
+      setRecording(false);
+      console.log("⏹️ Processing...");
+    }
   };
 
   return (
@@ -95,6 +149,7 @@ export default function ChatRoom({
           }}
           disabled={isLoading}
         />
+        <button onClick={handleRecord} />
         <button
           onClick={handleSend}
           style={{

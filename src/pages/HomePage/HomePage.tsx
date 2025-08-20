@@ -6,6 +6,7 @@ import { colors } from "../../constants/colors";
 import ChatRoom from "@/components/ChatRoom/ChatRoom";
 import { useState } from "react";
 import { postChat } from "@/api/postChat";
+import { postAudioChat } from "@/api/postAudioChat";
 
 interface Message {
   id: number;
@@ -37,6 +38,7 @@ function HomePage() {
   const [messages, setMessages] = useState<Message[]>(initialMessages);
 
   const onSend = async (message: string) => {
+    console.log("onSend called with message:", message);
     setIsLoading(true);
     setMessages([
       ...messages,
@@ -58,9 +60,37 @@ function HomePage() {
     setIsLoading(false);
   };
 
+  const onAudioSend = async (formData: FormData) => {
+    console.log("onSend called with message:", formData);
+    setIsLoading(true);
+    setMessages([
+      ...messages,
+      { id: messages.length + 1, text: "Sent with recording", sender: "right" },
+      { id: messages.length + 2, text: "Loading", sender: "left" },
+    ]);
+
+    const receivedMessage = await postAudioChat(formData);
+    setMessages((prev) =>
+      prev.map((msg) =>
+        msg.sender === "left" && msg.text === "Loading"
+          ? {
+              ...msg,
+              text: `${receivedMessage.reply}`,
+            }
+          : msg
+      )
+    );
+    setIsLoading(false);
+  };
+
   const rightContent = (
     <div className={joinClassnames([styles.right, styles.centered])}>
-      <ChatRoom isLoading={isLoading} messages={messages} onSend={onSend} />
+      <ChatRoom
+        isLoading={isLoading}
+        messages={messages}
+        onSend={onSend}
+        onAudioSend={onAudioSend}
+      />
     </div>
   );
 
