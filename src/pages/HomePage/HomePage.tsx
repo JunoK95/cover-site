@@ -41,13 +41,13 @@ function HomePage() {
     setMessages([
       ...messages,
       { id: messages.length + 1, text: message, sender: "right" },
-      { id: messages.length + 2, text: "Processing...", sender: "left" },
+      { id: messages.length + 2, text: "Loading", sender: "left" },
     ]);
 
     const receivedMessage = await postChat(message);
     setMessages((prev) =>
       prev.map((msg) =>
-        msg.sender === "left" && msg.text === "Processing..."
+        msg.sender === "left" && msg.text === "Loading"
           ? {
               ...msg,
               text: `${receivedMessage.reply}`,

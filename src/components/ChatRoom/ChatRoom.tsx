@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "./ChatRoom.module.scss";
 import { useEffect, useRef } from "react";
 import { colors } from "@/constants/colors";
+import ChatRoomMessage from "./ChatRoomMessage";
 
 interface Message {
   id: number;
@@ -68,9 +69,10 @@ export default function ChatRoom({
                 padding: "8px 12px",
                 borderRadius: 16,
                 maxWidth: "70%",
+                textAlign: msg.sender === "left" ? "left" : "right",
               }}
             >
-              {msg.text}
+              <ChatRoomMessage content={msg.text} />
             </div>
           </div>
         ))}
