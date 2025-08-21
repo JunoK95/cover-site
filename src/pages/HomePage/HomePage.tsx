@@ -65,14 +65,24 @@ function HomePage() {
     setIsLoading(true);
     setMessages([
       ...messages,
-      { id: messages.length + 1, text: "Sent with recording", sender: "right" },
+      { id: messages.length + 1, text: "Loading", sender: "right" },
       { id: messages.length + 2, text: "Loading", sender: "left" },
     ]);
 
     const receivedMessage = await postAudioChat(formData);
     setMessages((prev) =>
       prev.map((msg) =>
-        msg.sender === "left" && msg.text === "Loading"
+        msg.id === messages.length + 1 && msg.sender === "right"
+          ? {
+              ...msg,
+              text: `${receivedMessage.msg}`,
+            }
+          : msg
+      )
+    );
+    setMessages((prev) =>
+      prev.map((msg) =>
+        msg.id === messages.length + 2 && msg.sender === "left"
           ? {
               ...msg,
               text: `${receivedMessage.reply}`,

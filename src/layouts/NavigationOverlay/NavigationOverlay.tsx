@@ -21,7 +21,7 @@ const NavItem = ({ to, icon, label }: NavItemProps) => {
         joinClassnames([styles[label], isActive ? styles.active : ""])
       }
     >
-      <div>
+      <div role="button">
         <FontAwesomeIcon icon={icon} />
         <label>{label}</label>
       </div>

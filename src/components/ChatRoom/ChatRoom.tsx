@@ -3,6 +3,9 @@ import styles from "./ChatRoom.module.scss";
 import { useEffect, useRef } from "react";
 import { colors } from "@/constants/colors";
 import ChatRoomMessage from "./ChatRoomMessage";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMicrophone, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import HapticButton from "../HapticButton/HapticButton";
 
 interface Message {
   id: number;
@@ -131,17 +134,25 @@ export default function ChatRoom({
           </div>
         ))}
       </div>
-      <div style={{ display: "flex", alignItems: "flex-end" }}>
+      <div
+        style={{
+          display: "flex",
+          position: "relative",
+          alignItems: "flex-end",
+          gap: 8,
+        }}
+      >
         <input
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           style={{
-            flex: 1,
-            padding: 8,
-            borderRadius: 16,
+            width: "100%",
+            padding: "8px", // space for the button
+            boxSizing: "border-box",
+            borderRadius: "4px",
             border: "1px solid #ccc",
-            marginRight: 8,
+            fontSize: "16px",
           }}
           placeholder="Type your message..."
           onKeyDown={(e) => {
@@ -149,21 +160,50 @@ export default function ChatRoom({
           }}
           disabled={isLoading}
         />
-        <button onClick={handleRecord} />
-        <button
-          onClick={handleSend}
+        <div
           style={{
-            padding: "8px 16px",
-            borderRadius: 16,
+            display: "flex",
+            gap: 8,
+            alignItems: "center",
+            justifyContent: "center",
+            position: "absolute",
+            right: "40px",
+            top: "50%",
+            transform: "translateY(-50%)",
             border: "none",
-            background: "#1976d2",
-            color: "#fff",
-            cursor: "pointer",
+            color: "white",
+            padding: "0 12px",
           }}
-          disabled={isLoading}
         >
-          Send
-        </button>
+          <button
+            onClick={handleRecord}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              height: "24px",
+              width: "24px",
+              border: "none",
+              background: "transparent",
+              color: "#1976d2",
+              cursor: "pointer",
+            }}
+            disabled={isLoading}
+            aria-label="Record audio"
+          >
+            <FontAwesomeIcon icon={faMicrophone} />
+          </button>
+        </div>
+        <div>
+          <HapticButton
+            onClick={handleSend}
+            ariaLabel="Send message"
+            disabled={isLoading}
+            style={{ width: "40px", height: "40px" }}
+          >
+            <FontAwesomeIcon icon={faPaperPlane} />
+          </HapticButton>
+        </div>
       </div>
     </div>
   );
