@@ -18,11 +18,19 @@ export default function ChatRoomMessage({ content }: ChatMessageProps) {
 
   // Render markdown content
   return (
-    <TypingEffect>
+    <TypingEffect speed={25}>
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypeRaw, rehypeHighlight]}
         components={{
+          ul: (props) => (
+            <ul style={{ margin: 0, padding: 0, display: "grid", gap: "8px" }}>
+              {props.children}
+            </ul>
+          ),
+          li: (props) => (
+            <li style={{ margin: 0, padding: 0 }}>{props.children}</li>
+          ),
           img: (props) => (
             <img
               {...props}
