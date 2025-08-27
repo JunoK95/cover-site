@@ -30,7 +30,7 @@ const leftContent = (
       <JelloText>JUNO</JelloText>
     </div>
     <span className={joinClassnames([styles.subtitle, styles.alignRight])}>
-      - Frontend Engineer
+      - Software Engineer
     </span>
     <span className={styles.divDecor}>{`</div>`}</span>
   </div>
