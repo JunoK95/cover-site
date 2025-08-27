@@ -12,4 +12,15 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  server: {
+    host: true, // accessible via LAN
+    port: 5173,
+    proxy: {
+      "/chat": {
+        target: "http://localhost:5001", // backend
+        changeOrigin: true,
+        secure: false,
+      },
+    },
+  },
 });

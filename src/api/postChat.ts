@@ -1,6 +1,7 @@
 export async function postChat(message: string) {
   console.log("Posting chat message:", message);
-  const response = await fetch("http://localhost:5001/chat", {
+  const backendHost = window.location.hostname; // dynamically picks LAN IP
+  const response = await fetch(`http://${backendHost}:5001/chat`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
