@@ -17,7 +17,7 @@ interface Message {
 const initialMessages: Message[] = [
   {
     id: 1,
-    text: "Hello! I am Juno's AI assistant to help you learn more his qualifications as a software engineer. If you have any questions about his skills, experience, or resume, feel free to ask!",
+    text: "Hello! I am Juno's AI assistant to help you learn more about his qualifications as a software engineer. If you have any questions about his skills, experience, or resume, feel free to ask!",
     sender: "left",
   },
 ];

@@ -64,6 +64,11 @@ export default function ChatRoom({
           </div>
         ))}
       </div>
+      <div className={styles.recommendationRow}>
+        <button>Example Resume</button>
+        <button>Example Resume</button>
+        <button>Example Resume</button>
+      </div>
       <div className={styles.inputRow}>
         <input
           type="text"

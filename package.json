@@ -2,7 +2,6 @@
   "name": "juno-kim-portfolio-2",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://junok95.github.io/cover-site",
   "type": "module",
   "scripts": {
     "dev": "vite",
