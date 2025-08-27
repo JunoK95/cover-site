@@ -1,6 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import styles from "./ChatRoom.module.scss";
-import { useEffect, useRef } from "react";
 import { colors } from "@/constants/colors";
 import ChatRoomMessage from "./ChatRoomMessage";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -25,8 +24,9 @@ interface ChatRoomProps {
   onSend?: (message: string) => void;
   onAudioSend?: (formData: FormData) => void;
 }
+
 export default function ChatRoom({
-  isLoading,
+  isLoading = false,
   messages = [],
   onSend,
   onAudioSend,
@@ -36,39 +36,47 @@ export default function ChatRoom({
   const { recording, startRecording, stopRecording } =
     useAudioRecorder(onAudioSend);
 
+  // Auto-scroll when messages update
   useEffect(() => {
-    if (chatRef.current) {
-      chatRef.current.scrollTop = chatRef.current.scrollHeight;
-    }
+    chatRef.current?.scrollTo({
+      top: chatRef.current.scrollHeight,
+      behavior: "smooth",
+    });
   }, [messages]);
 
   const handleSend = () => {
-    if (!input.trim()) return;
-    onSend?.(input);
-    setInput("");
+    if (input.trim()) {
+      onSend?.(input);
+      setInput("");
+    }
   };
-
-  console.log("Rendering ChatRoom with messages:", messages);
 
   return (
     <div className={styles.chatRoom}>
+      {/* Messages */}
       <div ref={chatRef} className={styles.messages}>
-        {messages.map((msg) => (
+        {messages.map(({ id, text, sender }) => (
           <div
-            key={msg.id}
-            className={msg.sender === "left" ? styles.msgLeft : styles.msgRight}
+            key={id}
+            className={sender === "left" ? styles.msgLeft : styles.msgRight}
           >
             <div className={styles.bubble}>
-              <ChatRoomMessage content={msg.text} />
+              <ChatRoomMessage content={text} />
             </div>
           </div>
         ))}
       </div>
+
+      {/* Suggestions */}
       <div className={styles.recommendationRow}>
-        <button>Example Resume</button>
-        <button>Example Resume</button>
-        <button>Example Resume</button>
+        {["Example Resume", "Example Resume", "Example Resume"].map(
+          (label, idx) => (
+            <button key={idx}>{label}</button>
+          )
+        )}
       </div>
+
+      {/* Input Row */}
       <div className={styles.inputRow}>
         <input
           type="text"
