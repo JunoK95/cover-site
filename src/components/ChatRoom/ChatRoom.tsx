@@ -69,11 +69,18 @@ export default function ChatRoom({
 
       {/* Suggestions */}
       <div className={styles.recommendationRow}>
-        {["Example Resume", "Example Resume", "Example Resume"].map(
-          (label, idx) => (
-            <button key={idx}>{label}</button>
-          )
-        )}
+        {[
+          "Skills",
+          "Experience",
+          "Contact",
+          "Resume",
+          "Strengths",
+          "Weaknesses",
+        ].map((label, idx) => (
+          <button key={idx} className={styles.recommendationButton}>
+            {label}
+          </button>
+        ))}
       </div>
 
       {/* Input Row */}

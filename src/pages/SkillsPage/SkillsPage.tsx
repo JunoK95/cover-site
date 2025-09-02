@@ -1,8 +1,10 @@
+import { projects } from "@/constants/projects";
 import JelloText from "../../components/JelloText/JelloText";
 import { colors } from "../../constants/colors";
 import { PageLayout } from "../../layouts/PageLayout";
 import joinClassnames from "../../utils/joinClassnames";
 import styles from "./SkillsPage.module.scss";
+import ProjectsList from "@/components/ProjectsList/ProjectsList";
 // import SkillList from "../../components/SkillList/SkillList";
 // import CardCarousel from "../../components/CardCarousel/CardCarousel";
 // import { skillsList } from "@/constants/skillsList";
@@ -16,7 +18,7 @@ import styles from "./SkillsPage.module.scss";
 //   faLanguage,
 //   faPalette,
 // } from "@fortawesome/free-solid-svg-icons";
-import WordSphere from "@/components/WordSphere/WordSphere";
+// import WordSphere from "@/components/WordSphere/WordSphere";
 
 const leftContent = (
   <div className={joinClassnames([styles.left, styles.centered])}>
@@ -68,7 +70,8 @@ const rightContent = () => {
   return (
     <div className={styles.right}>
       {/* <CardCarousel cards={cards} /> */}
-      <WordSphere />
+      {/* <WordSphere /> */}
+      <ProjectsList projects={projects} />
     </div>
   );
 };

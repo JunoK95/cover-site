@@ -63,6 +63,7 @@
   background: #1976d2;
   color: #fff;
   text-align: right;
+  text-shadow: none;
 }
 
 .recommendationRow {
@@ -71,16 +72,32 @@
   align-items: center;
   gap: 8px;
   padding: 8px 0;
+  padding-left: 4px;
   overflow-x: auto;
   margin-bottom: 8px;
 
   &::-webkit-scrollbar {
     height: 6px;
+    display: auto;
   }
 
   &::-webkit-scrollbar-thumb {
     background: #ccc;
     border-radius: 3px;
+  }
+
+  button {
+    display: flex;
+    padding: 8px 12px;
+    border-radius: 16px;
+    display: inline-block;
+    width: auto; // shrink to fit short text
+    white-space: pre-wrap; // keep line breaks from text
+    border-color: #ccc;
+    &:hover {
+      background-color: #1976d2;
+      color: white;
+    }
   }
 }
 
