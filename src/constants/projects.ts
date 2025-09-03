@@ -25,12 +25,28 @@ export const projects = [
     description:
       "A client-server application that allows users to send and convert messages to text-to-speech llm models then synchronize animation to Vtube Studio.",
     tags: ["React", "WebSocket", "Token Authentication", "API"],
+    github: "https://github.com/JunoK95/vtube-bridge",
   },
   {
     title: "AI Chat Assistant",
     description:
       "An AI-powered chat assistant that provides real-time responses and suggestions. Able to handle both text and audio inputs and convert to text-to-speech.",
     tags: ["Node.js", "Express", "WebSocket", "OpenAI API", "RESTful"],
+    github: "https://github.com/JunoK95/sakira-express-chatgpt",
+  },
+  {
+    title: "Parq",
+    description:
+      "A parking spot finder app that helps users locate available parking spots in real-time using GPS and mapping technologies. Features include spot reservation, navigation, and payment integration.",
+    tags: [
+      "React Native",
+      "TestFlight",
+      "Expo",
+      "Google Maps API",
+      "Firebase",
+      "GPS",
+    ],
+    github: "https://github.com/JunoK95/ParqNative",
   },
   {
     title: "Portfolio Website",
@@ -44,6 +60,7 @@ export const projects = [
       "Framer Motion",
       "API",
     ],
+    github: "https://github.com/JunoK95/cover-site",
   },
   {
     title: "Factory New",
@@ -53,7 +70,7 @@ export const projects = [
     website: "https://factorynew.io/",
   },
   {
-    title: "Vizioso Showcase Site",
+    title: "Vizioso Showcase",
     description:
       "A showcase website for Vizioso, a 3D artist and designer. Features a clean and modern design to highlight the artist's work.",
     tags: [
@@ -66,6 +83,7 @@ export const projects = [
       "Design",
     ],
     website: "https://junok95.github.io/Vizioso/#",
+    github: "https://github.com/JunoK95/Vizioso",
   },
   {
     title: "Sheet Music Scraper",

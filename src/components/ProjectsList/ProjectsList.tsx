@@ -24,9 +24,21 @@ const ProjectsList: React.FC<ProjectsListProps> = ({ projects }) => (
         <div className={styles.header}>
           <h3 className={styles.title}>{project.title}</h3>
           <div className={styles.right}>
-            {project.github && <FontAwesomeIcon icon={faGithub} />}
-            {project.website && <FontAwesomeIcon icon={faGlobe} />}
-            {project.altWebsite && <FontAwesomeIcon icon={faGlobe} />}
+            {project.github && (
+              <a href={project.github} target="_blank" rel="noreferrer">
+                <FontAwesomeIcon icon={faGithub} />
+              </a>
+            )}
+            {project.website && (
+              <a href={project.website} target="_blank" rel="noreferrer">
+                <FontAwesomeIcon icon={faGlobe} />
+              </a>
+            )}
+            {project.altWebsite && (
+              <a href={project.altWebsite} target="_blank" rel="noreferrer">
+                <FontAwesomeIcon icon={faGlobe} />
+              </a>
+            )}
           </div>
         </div>
         <p className={styles.description}>{project.description}</p>
