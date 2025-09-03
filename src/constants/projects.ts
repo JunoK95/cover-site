@@ -49,6 +49,13 @@ export const projects = [
     github: "https://github.com/JunoK95/ParqNative",
   },
   {
+    title: "Frogboiz NFT Splash Page",
+    description:
+      "A splash page for the Frogboiz NFT collection, featuring a countdown timer, project information, and social media links. Designed to generate interest and excitement for the upcoming launch.",
+    tags: ["React", "HTML", "CSS", "JavaScript", "Responsive Design", "Design"],
+    github: "https://github.com/JunoK95/frogboiz-splash-page",
+  },
+  {
     title: "Portfolio Website",
     description:
       "A personal portfolio website to showcase my projects, skills, and experience. Built with modern web technologies for a responsive and engaging user experience. Integrates with personal AI chat assistant.",
@@ -96,5 +103,20 @@ export const projects = [
       "Data Extraction",
       "Automation",
     ],
+    github: "https://github.com/JunoK95/PianoTeacherApp",
+  },
+  {
+    title: "Sprite Editor",
+    description:
+      "Sprite editor for creating and editing pixel art sprites using C++ and QT Library.",
+    tags: ["C++", "QT", "GUI", "Design"],
+    github: "https://github.com/JunoK95/QTSpriteEditor",
+  },
+  {
+    title: "SmashBomb",
+    description:
+      'SmashBomb is a "Super Smash Bros" inspired 2D fighting game built with Unity.',
+    tags: ["C#", "Unity", "Game Development", "2D"],
+    github: "https://github.com/JunoK95/smashbomb",
   },
 ];

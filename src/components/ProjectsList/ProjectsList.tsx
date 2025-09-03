@@ -10,7 +10,7 @@ type Project = {
   tags: string[];
   github?: string;
   website?: string;
-  altWebsite?: string;
+  websiteAlt?: string;
 };
 
 type ProjectsListProps = {
@@ -34,8 +34,8 @@ const ProjectsList: React.FC<ProjectsListProps> = ({ projects }) => (
                 <FontAwesomeIcon icon={faGlobe} />
               </a>
             )}
-            {project.altWebsite && (
-              <a href={project.altWebsite} target="_blank" rel="noreferrer">
+            {project.websiteAlt && (
+              <a href={project.websiteAlt} target="_blank" rel="noreferrer">
                 <FontAwesomeIcon icon={faGlobe} />
               </a>
             )}
