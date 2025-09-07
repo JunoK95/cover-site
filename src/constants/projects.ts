@@ -53,6 +53,7 @@ export const projects = [
     description:
       "A splash page for the Frogboiz NFT collection, featuring a countdown timer, project information, and social media links. Designed to generate interest and excitement for the upcoming launch.",
     tags: ["React", "HTML", "CSS", "JavaScript", "Responsive Design", "Design"],
+    website: "https://junok95.github.io/frogboiz-splash-page/#/",
     github: "https://github.com/JunoK95/frogboiz-splash-page",
   },
   {

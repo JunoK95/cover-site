@@ -10,6 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import HapticButton from "../HapticButton/HapticButton";
 import useAudioRecorder from "@/hooks/useAudioRecorder";
+import { faqs } from "@/constants/faqs";
 
 // --- Types ---
 interface Message {
@@ -51,6 +52,11 @@ export default function ChatRoom({
     }
   };
 
+  const onFAQClick = (question: { label: string; message: string }) => {
+    const { message } = question;
+    onSend?.(message);
+  };
+
   return (
     <div className={styles.chatRoom}>
       {/* Messages */}
@@ -69,18 +75,18 @@ export default function ChatRoom({
 
       {/* Suggestions */}
       <div className={styles.recommendationRow}>
-        {[
-          "Skills",
-          "Experience",
-          "Contact",
-          "Resume",
-          "Strengths",
-          "Weaknesses",
-        ].map((label, idx) => (
-          <button key={idx} className={styles.recommendationButton}>
-            {label}
-          </button>
-        ))}
+        {faqs.map((question, idx) => {
+          const { label } = question;
+          return (
+            <button
+              key={idx}
+              className={styles.recommendationButton}
+              onClick={() => onFAQClick(question)}
+            >
+              {label}
+            </button>
+          );
+        })}
       </div>
 
       {/* Input Row */}
