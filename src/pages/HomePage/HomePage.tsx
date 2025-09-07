@@ -43,9 +43,14 @@ export default function HomePage() {
     addMessage(message, "right");
     addMessage("Loading", "left");
 
-    const { reply } = await postChat(message);
-    replaceLoading("left", reply);
-    setIsLoading(false);
+    try {
+      const { reply } = await postChat(message);
+      replaceLoading("left", reply);
+      setIsLoading(false);
+    } catch (error) {
+      console.error("Error posting chat message:", error);
+      replaceLoading("left", "Sorry, something went wrong. Please try again.");
+    }
   };
 
   const handleAudioSend = async (formData: FormData) => {
@@ -53,10 +58,16 @@ export default function HomePage() {
     addMessage("Loading", "right");
     addMessage("Loading", "left");
 
-    const { msg, reply } = await postAudioChat(formData);
-    replaceLoading("right", msg);
-    replaceLoading("left", reply);
-    setIsLoading(false);
+    try {
+      const { msg, reply } = await postAudioChat(formData);
+      replaceLoading("right", msg);
+      replaceLoading("left", reply);
+      setIsLoading(false);
+    } catch (error) {
+      console.error("Error posting audio chat message:", error);
+      replaceLoading("left", "Sorry, something went wrong. Please try again.");
+      replaceLoading("right", "Sorry, something went wrong. Please try again.");
+    }
   };
 
   return (
