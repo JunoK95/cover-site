@@ -10,6 +10,10 @@ type ChatMessageProps = {
   content: string;
 };
 
+export function collapseBlankLines(input: string): string {
+  return input.replace(/(\r?\n){2,}/g, "\n");
+}
+
 export default function ChatRoomMessage({ content }: ChatMessageProps) {
   // Use EllipsisAnimation for loading state
   if (content === "Loading") {
@@ -23,13 +27,18 @@ export default function ChatRoomMessage({ content }: ChatMessageProps) {
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypeRaw, rehypeHighlight]}
         components={{
+          p: (props) => (
+            <p style={{ margin: "0", display: "block" }}>{props.children}</p>
+          ),
           ul: (props) => (
             <ul style={{ margin: 0, padding: 0, display: "grid", gap: "8px" }}>
               {props.children}
             </ul>
           ),
           li: (props) => (
-            <li style={{ margin: 0, padding: 0 }}>{props.children}</li>
+            <li style={{ margin: 0, padding: 0, height: "auto" }}>
+              {props.children}
+            </li>
           ),
           img: (props) => (
             <img
@@ -84,7 +93,7 @@ export default function ChatRoomMessage({ content }: ChatMessageProps) {
           },
         }}
       >
-        {content}
+        {collapseBlankLines(content)}
       </ReactMarkdown>
     </TypingEffect>
   );
