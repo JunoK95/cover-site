@@ -5,14 +5,11 @@ import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/github.css";
 import EllipsisAnimation from "../EllipsisAnimation/EllipsisAnimation";
 import TypingEffect from "../TypingEffect/TypingEffect";
+import collapseBlankLines from "@/utils/collapseBlankLines";
 
 type ChatMessageProps = {
   content: string;
 };
-
-export function collapseBlankLines(input: string): string {
-  return input.replace(/(\r?\n){2,}/g, "\n");
-}
 
 export default function ChatRoomMessage({ content }: ChatMessageProps) {
   // Use EllipsisAnimation for loading state
