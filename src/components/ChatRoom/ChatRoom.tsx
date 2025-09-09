@@ -81,6 +81,7 @@ export default function ChatRoom({
             <button
               key={idx}
               className={styles.recommendationButton}
+              disabled={isLoading}
               onClick={() => onFAQClick(question)}
             >
               {label}

@@ -5,7 +5,7 @@ import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/github.css";
 import EllipsisAnimation from "../EllipsisAnimation/EllipsisAnimation";
 import TypingEffect from "../TypingEffect/TypingEffect";
-import collapseBlankLines from "@/utils/collapseBlankLines";
+// import collapseBlankLines from "@/utils/collapseBlankLines";
 
 type ChatMessageProps = {
   content: string;
@@ -28,6 +28,11 @@ export default function ChatRoomMessage({ content }: ChatMessageProps) {
             <p style={{ margin: "0", display: "block" }}>{props.children}</p>
           ),
           ul: (props) => (
+            <ul style={{ margin: 0, padding: 0, display: "grid", gap: "8px" }}>
+              {props.children}
+            </ul>
+          ),
+          ol: (props) => (
             <ul style={{ margin: 0, padding: 0, display: "grid", gap: "8px" }}>
               {props.children}
             </ul>
@@ -90,7 +95,7 @@ export default function ChatRoomMessage({ content }: ChatMessageProps) {
           },
         }}
       >
-        {collapseBlankLines(content)}
+        {content}
       </ReactMarkdown>
     </TypingEffect>
   );
