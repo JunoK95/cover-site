@@ -28,17 +28,40 @@ export default function ChatRoomMessage({ content }: ChatMessageProps) {
             <p style={{ margin: "0", display: "block" }}>{props.children}</p>
           ),
           ul: (props) => (
-            <ul style={{ margin: 0, padding: 0, display: "grid", gap: "8px" }}>
+            <ul
+              style={{
+                margin: 0,
+                padding: 0,
+                display: "grid",
+                gap: "0px",
+                height: "auto",
+              }}
+            >
               {props.children}
             </ul>
           ),
           ol: (props) => (
-            <ul style={{ margin: 0, padding: 0, display: "grid", gap: "8px" }}>
+            <ul
+              style={{
+                margin: 0,
+                padding: 0,
+                display: "grid",
+                gap: "0px",
+                height: "auto",
+              }}
+            >
               {props.children}
             </ul>
           ),
           li: (props) => (
-            <li style={{ margin: 0, padding: 0, height: "auto" }}>
+            <li
+              style={{
+                margin: 0,
+                padding: 0,
+                height: "auto",
+                display: "block",
+              }}
+            >
               {props.children}
             </li>
           ),
