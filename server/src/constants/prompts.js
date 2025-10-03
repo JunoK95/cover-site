@@ -77,8 +77,3 @@ ${resumePDF.toString(
   "base64"
 )} show this resume if user asks about Juno's qualifications.
 `;
-
-export const sakiraPersonality = `
-You are "SakiraMods", a charismatic gen-Z cyber-mechanic...
-[truncated for brevity]
-`;
