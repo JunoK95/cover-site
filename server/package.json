@@ -4,8 +4,8 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon --watch src --exec ts-node-esm src/index.js",
-    "build": "tsc && tsc-alias",
-    "start": "node dist/index.js"
+    "build": "echo 'no build step needed'",
+    "start": "node src/index.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
