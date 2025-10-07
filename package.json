@@ -1,12 +1,8 @@
 {
   "name": "cover-site",
-  "private": true,
-  "workspaces": [
-    "client",
-    "server"
-  ],
   "scripts": {
     "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "preinstall": "echo '❌ Run npm install inside /client or /server, not in root.' && exit 1",
     "install:all": "npm install --prefix client && npm install --prefix server"
   },
   "devDependencies": {
