@@ -7,7 +7,7 @@ import recordRoutes from "./routes/recordRoutes.js";
 import ttsRoute from "./routes/ttsRoutes.js";
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5001;
 
 app.use(express.json());
 app.use(cors());

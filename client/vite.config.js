@@ -1,11 +1,10 @@
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react-swc";
+import react from "@vitejs/plugin-react";
 import path from "path";
-import tailwindcss from "@tailwindcss/vite";
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
+  plugins: [react()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
@@ -16,7 +15,7 @@ export default defineConfig({
     port: 5173,
     proxy: {
       "/chat": {
-        target: "http://localhost:5000", // backend
+        target: "http://localhost:5001", // backend
         changeOrigin: true,
         secure: false,
       },
