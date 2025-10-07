@@ -1,5 +1,5 @@
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
+import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
 // https://vite.dev/config/
@@ -15,7 +15,7 @@ export default defineConfig({
     port: 5173,
     proxy: {
       "/chat": {
-        target: "http://localhost:5001", // backend
+        target: "http://localhost:5000", // backend
         changeOrigin: true,
         secure: false,
       },
