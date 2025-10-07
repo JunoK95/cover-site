@@ -1,7 +1,7 @@
 export async function postAudioChat(formData: FormData) {
   const backendHost =
     import.meta.env.VITE_BACKEND_URL ||
-    `http://${window.location.hostname}:5001`; // dynamically picks LAN IP
+    `http://${window.location.hostname}:5000`; // dynamically picks LAN IP
   console.log("Posting Audio chat message:", formData);
   const response = await fetch(`${backendHost}/chat`, {
     method: "POST",

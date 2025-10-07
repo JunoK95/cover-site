@@ -16,7 +16,7 @@ export default defineConfig({
     port: 5173,
     proxy: {
       "/chat": {
-        target: "http://localhost:5001", // backend
+        target: "http://localhost:5000", // backend
         changeOrigin: true,
         secure: false,
       },
